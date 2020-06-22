@@ -1,0 +1,86 @@
+js学习总结：
+1.<script>标签可以写在任何位置,但是最好写在head头部标签里（遵循规范）
+2.应用外部js
+        如：<script   type="text/javascript" src="path">
+                引用外部函数之后
+                当前<script>所包含的代码块将会失效
+            </script>
+3.数据类型以及一些命名规则(同java相似)
+    3.1 使用var定义变量 （和java的区别） js：弱引用语言   java：强引用语言
+        区别：
+             java：int name = value ;根据变量名前面 声明的数据类型绝对类型
+
+             javascript： var age = value ;age是根据value值得类型而改变类型：如何 value=18 age就是number类型，age="18" 就是string类型;
+                       var name = value ;name变量比较特殊（是javascript内置对象，因此就算更改value的类型也还是string类型）
+
+    3.2 基本类型：number;
+                 string;
+                 boolean;
+                 array;
+
+
+        函数 typeof:
+                    用法：typeof 变量，返回值变量的数据类型；
+
+4.运算符(同java类似)
+    注意：
+        4.1 任何类型与字符串做 + 运算结果都是以字符串的加法形式显示（连接）
+           如：var sum = 1 + "5";
+              结果："15";
+
+        4.2 number类型和字符串做减法运算时、
+
+           纯数字的字符串将会自动转换成number类型
+           如：var sum = 1 - "5";
+              结果： -4;
+
+           非纯数字的字符串将会返回Nan；（not number的意思）
+           如: var sum = 1 - "5a";
+              结果： Nan;
+
+5.强制转换类型
+        5.1 String 和 Number 互转
+
+            String ——> Number
+            var sum = "15";
+                   var num = parseInt(sum); //相对于非纯数字的字符串，他是尽可能的转换 遇到非数字后停止转换 如：1a5a 结果 1 ;
+                   var num = Number(sum);   //整体转换 如果不是纯字符串 结果为: Nan ;
+
+            Number ——> String
+             var num = 15 ;
+                    var sum = String(num);
+
+        5.2 String 和 Boolean 互转
+            String ——> Boolean
+            var sum = "ss";
+                    var num = Boolean(sum); //空值或NULL 返回false ，非空true;
+
+            Boolean ——> String
+            var sum = true
+                    var num = String(sum); //同Number ——> String 类似;
+
+        5.3 Number 和 Boolean 互转
+            Number ——> Boolean
+            var sum = 1;
+                    var num = Boolean(sum); //0为false 非0 为true;
+
+            Boolean ——> Number;
+            var sum = true;
+                    var num = Number(sum);  //true = 1 ; false = 0 ;
+
+                    var parseInt(sum); //Nan; 同String ——> Number 的paserInt原理相同;
+
+6.关系运算符进阶
+        6.1 任何非数值类型和数值类型进行比较时都会转会为数值型在比较(不可以和杂乱的字符串比较："字母和数字混合的");
+            如: alert(2 > "1");   result : true;
+                alert(1 == "1");  result : true;
+                alert(1 == true); result : true;
+
+        6.2 任何数值类型 和 NaN 进行比较
+                true == NaN;    //只要是等于 就会 false;
+                "ss" == NaN;    //只要是等于 就会 false;
+                Nan  == NaN;    //只要是等于 就会 false;
+
+                true != NaN;    //只要是不等于 就会 返回 true;
+
+
