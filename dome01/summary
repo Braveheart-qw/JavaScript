@@ -108,3 +108,34 @@ js学习总结：
                         return sum(n) = sum(n+1) + n;
                     }
                 }
+
+
+8.事件驱动加载函数
+        8.1 代码执行是按顺序执行的，在上方的js代码会获取不到对象
+            如：var btn = document.getElementById("对象");
+                alert(btn);
+
+                显示：null   找不到对象，因为页面元素尚未加载成功
+            解决方法：
+                    使用window.onload = function(){
+
+                    }
+                    window.onload 意思是等页面元素全部加载完成之后，在执行此函数
+
+        8.2 事件加载驱动
+            8.2.1 可以在代码为其添加触发代码的形式
+
+            鼠标单击事件
+                  btn.onclick = function(){
+                        单击之后执行的代码
+                  }
+
+            鼠标悬停事件
+                  btn.onmouseover = function(){
+
+                  }
+
+            8.2.2 可以直接在页面元素绑定方法
+
+                   如: onclick="函数";
+
