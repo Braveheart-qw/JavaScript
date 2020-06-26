@@ -58,7 +58,49 @@ js学习总结：
                     功能：从数组头部插入数据
                     返回值：插入后的长度
 
+                其它方法
+                    1.concat()；
+                    【格式】数组.concat(数组2)；
+                    功能：将两个数组合并成一个新数组
+                    返回值：合并后的数组
 
+                    如： var array = ["钢铁侠" , "雷神" , "美队"];
+                         var newArray = ["蝙蝠侠" , "超人"];
+
+                         alert(newArray.concat(array));
+                         result: 蝙蝠侠，超人，钢铁侠，雷神，美队
+
+                    2.slice()
+                     【格式】数组.slice(start , end);
+                     功能：复制数组元素；
+                     参数：start:下标   end:复制几个
+                     返回值:复制的数组；
+
+                     如：var array = ["钢铁侠" , "美队" , "雷神索尔"];
+                         var newArray = array.slice(0,2);
+
+                         alert(newArray);
+                         result: 钢铁侠，美队
+
+                     3.splice 常用 可以完成删除，插入，替换操作
+                     参数： 参数1 截取的开始下标
+                            参数2 截取的长度
+                            参数3 在截取的开始下标位置，我们要插入的元素，插入的元素个数
+
+                            //剪切功能：
+                             var array = ["钢铁侠" , "美队" , "雷神索尔"];
+                             var newArray = array.splice(1,2);
+                             alert(newArray);       result: 美队，雷神索尔
+                             alert(array);          result: 钢铁侠
+
+                             //插入功能
+                              var array = ["钢铁侠" , "美队" , "雷神索尔"];
+                                var newArray = array.splice(3,0,"金刚狼","??");
+                                alert(newArray);        // 剪切的数据  没有
+                                alert(array);           // 插入之后的数组  钢铁侠,美队,雷神索尔金刚狼，？？
+
+                             //替换功能
+                             同插入功能  将需要替换的数据删除
         函数 typeof:
                     用法：typeof 变量，返回值变量的数据类型；
 
@@ -181,8 +223,10 @@ js学习总结：
 
 
 
+
+
 js控制页面元素
-        9.1 文本框
+         文本框
             获取文本框的值
             对象.value
             在文本框输入值
