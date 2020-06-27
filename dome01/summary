@@ -229,6 +229,31 @@ js学习总结：
 
                    如: onclick="函数";
 
+9.排序算法
+        系统排序：不建议使用
+            数组.sort();  默认按ASCII码值升序排序
+            降序排序，使用stort之后，在使用reverse();
+
+            按数值来排序
+            如：降序排序
+                数组.sort(function(a , b){return b-a;});
+
+                升序排序就是 return a-b;
+
+
+
+
+        9.1 冒泡排序
+            思想：两两比较大小，将最大的或最小的沉底
+            var temp = null;
+            如：var array = [9 , 6 , 7 , 5 , 8 , 3];
+                for (var i = 0 ; i < array.length - 1 ; i++)
+                    for( var j = 0;j < array.length - i ; j++)
+                        if(array[j] < array[j+1]){
+                            temp = array[j];
+                            array[j] = array[j+1];
+                            array[j+1] = temp;
+                        }
 
 
 
