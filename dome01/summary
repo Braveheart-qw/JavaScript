@@ -243,7 +243,7 @@ js学习总结：
 
 
 
-        9.1 冒泡排序
+        9.1 冒泡排序            效率慢  时间复杂度高  （稳定）
             思想：两两比较大小，将最大的或最小的沉底
             var temp = null;
             如：var array = [9 , 6 , 7 , 5 , 8 , 3];
@@ -255,7 +255,19 @@ js学习总结：
                             array[j+1] = temp;
                         }
 
+        9.2 选择排序            效率慢 不稳定
+            思想：顺序比较数值大小
+            var array = [9 , 6 , 7 , 15 , 8 , 3];
+                  for(var i = 0;i < array.length-1 ; i++)
+                     for(var j = i+1 ; j<=array.length; j++)
+                        if(array[i] > array[j]){
+                            //使用加法实现 变量的交换       浮点数精度会缺失
+                           array[i] = array[i] + array[j];
+                           array[j] = array[i] - array[j];
+                           array[i] = array[i] - array[j];
+                        }
 
+                  alert(array);
 
 
 js控制页面元素
