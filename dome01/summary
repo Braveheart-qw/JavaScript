@@ -102,6 +102,96 @@ js学习总结：
                              //替换功能
                              同插入功能  将需要替换的数据删除
 
+                     ES5新增的数组方法
+                     indexOf();
+                     【格式】数组.indexOf(元素 , index);
+                     【注意】同字符串的indexOf()使用方法一致
+
+                     forEach()
+                     【格式】数组.forEach(function(item , index , array){
+                            item 当前遍历到的元素
+                            index 当前遍历到的下标
+                            array 当前数组
+
+                           可以灵活的输出以上任意的值
+                           比如：我只输入item或者 只输出下标 都可以
+                     })
+                     功能：遍历数组
+
+                     map() 映射
+                     【格式】function(item , index , array){
+                               return 操作
+                     }
+                     【注意】运行流程 先遍历->操作->返回
+                     var max= [10 , 20 , 30 , 40 , 30];
+                     如：给以上数组每个元素增加2；
+                     max.map(function(item , index , array){
+                        return item+2;
+                     })
+                     返回值就是数组+2的结果
+                     原数组没有发生变化；
+
+                     reduce() 归并
+                     【格式】数组.reduce(function(pre , next , index , array){
+                        pre 上一次遍历return后面的值
+                        next 当前遍历到的元素
+                     })
+                     返回值：最后计算得出的pre
+                    如：var sum = max.reduce(function(pre , next){
+                        return pre + next;
+                        //整个return其实是将pre+next的和返回个了pre
+                        也就是pre += next;
+
+                      })
+                      alert(sum);
+
+                      result: 130;
+
+                     filter() 过滤
+                     【格式】数组.filter(function(item , index, array){
+                        //参数同forEach()代表的含义相同
+                     });
+
+                     如：求出数组元素大于20组成的数组
+                    var max= [10 , 20 , 30 , 40 , 30];
+
+                        alert(max.filter(function(item , index , array){
+                            return item > 20;
+                        }));
+
+                        result: [30,40,30]
+
+
+                    some();
+                    【格式】数组.some(function(item , index , array){
+                         参数同filter()的参数含义相同
+                    })；
+                    功能：判断return后面的表达式条件是否成立，如果成立返回true
+                    【注意】这个具有短路操作有一项符合条件，后面就不会执行了
+                            所以引出数组.every()，每一项都必须符合条件才会返回true
+                            用法同some()相同
+                    如：数组是否存在10
+                     alert(max.some(function(item , index , array){
+                                return item == 10;
+                        }));
+                     result:true;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
                 二维数组：
@@ -285,6 +375,81 @@ js学习总结：
         4.concat();不常用  一般用+号连接字符串
         【格式】字符串.concat(参数字符串);
          功能：合并字符串;同数组的concat()功能相同
+
+        查找方法
+        5.indexOf()
+        【格式】字符串.indexOf(子串 , 开始下标);
+        功能：查找字符串
+        返回值：需要查找的字符串第一次出现的位置,没找到返回-1
+
+        6.lastIndexOf()
+        【格式】字符串.lastIndexOf(子串);       因为一直是最后一个，也可以不使用开始下标
+        功能：子串在字符串最后一次出现的位置，如果没有返回-1；
+
+        7.search();    不需要开始下标
+        【格式】字符串.search(子串)   参数可以是正则
+        功能和indexOf相同，注意是正则
+        如：字符串.search(子串);
+
+        替换方法
+        8.replace();
+        【格式】字符串.replace(子串/正则);
+        功能：替换第一个匹配的字符串；
+        如：  var str = "heello";
+            alert(str.replace("e","m"));
+
+            result: hmello
+
+        问题，如何替换所有匹配的字符呢？
+        使用正则：
+        alert(str.replace(/e/g,"m"));
+        result: hmmllo
+
+        截取方法
+        subString();
+        【格式】字符串.subString(开始下标，结束下标);
+        功能: 截取字符串
+        【注意】截取的字符串包含开始下标，但是不包含结束下标
+
+        分隔方法
+        split();
+        【格式】字符串.split(分隔符);
+        功能：按分隔符来进行分隔
+        返回：分隔成的数组
+        【注意】分隔符为空字符串，会分成单个字符
+
+        大小写转换方法
+        【格式】字符串.toLowerCase();
+               字符串.toUpperCase();
+
+ES5：严格模式
+    从字面意思理解，即这种严格模式下，客户端会对JS的要求更加苛刻
+
+    如： function x(){
+          max = 10;
+        }
+        x();
+        alert(max);
+
+        当前没有声明max值，但是一般情况下js 会自动补上一个全局max值
+        所以结果不会报错
+
+        严格模式
+        在你需要执行严格模式的作用域下添加
+        "use strict";
+
+        如： function x(){
+              "use strict";
+              max = 10;
+            }
+            x();
+            alert(max);
+
+           结果就会报变量未定义的错误
+
+        【注意】不要轻易在全局作用域下添加use strict；
+
+
 
 
 
