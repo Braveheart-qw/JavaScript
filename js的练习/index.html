@@ -42,11 +42,28 @@
 
         }
 
+        //动态显示时间
+
+        function s(){
+        setInterval(function () {
+            var date = new Date();
+            var hh = date.getHours();
+            var mm = date.getMinutes();
+            var ss = date.getSeconds();
+
+
+            var show = document.getElementById("yp");
+            show.innerHTML = hh+":"+mm+":"+ss;
+        },1000);
+        }
+
+
 
     </script>
 </head>
 
 <body>
-<button id="submit" onclick="endsWithVowel('sssssa')">submit</button>
+<button id="submit" onclick="s()">submit</button>
+<p id = "yp">123456</p>
 </body>
 </html>
