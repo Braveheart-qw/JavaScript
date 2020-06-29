@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type = "text/javascript">
+        //练习1
+        function multiply(a , b){
+          return a * b;         //原式: a * b;
+        }
+
+        //输入一个数：返回二进制
+        function byte(n){
+            var a = null , sum = 0;
+            while(n > 0) {
+                a = n % 2;
+                n = Math.floor(n / 2);          //js不会自动取整
+                if(a == 1)
+                    sum++;
+
+            }
+            alert(sum);
+        }
+
+        //数组求和
+        function sum_array(arr){
+            var sum = null;
+           arr.forEach(function(item , index ){
+                sum += item;
+           });
+           alert(sum);
+
+        }
+
+        //判断是否包含元音字母
+        function endsWithVowel(str){
+            var endstr = str.substring(str.length-1,str.length);
+           if("aeiouAEIOU".search(endstr) == -1){
+               return false;
+           }
+           return true;
+
+        }
+
+
+    </script>
+</head>
+
+<body>
+<button id="submit" onclick="endsWithVowel('sssssa')">submit</button>
+</body>
+</html>
