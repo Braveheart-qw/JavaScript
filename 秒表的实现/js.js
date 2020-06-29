@@ -7,7 +7,8 @@ window.onload = function(){
 
     var start = document.getElementById("start");
     var yp = document.getElementById("yp");
-
+    var stop = document.getElementById("stop");
+    var clean = document.getElementById("clean");
     start.onclick = function(){
         var sum = 0;
         timer = setInterval(function(){
@@ -21,13 +22,18 @@ window.onload = function(){
                 mm++;
             }
 
-            yp.innerHTML = hh+":"+mm+":"+ss+" "+hm;
+            yp.innerHTML = hh+" : "+mm+" : "+ss+" "+hm;
         },100)
-    }
-
-    function sp(){
+    };
+    
+    stop.onclick = function () {
         clearInterval(timer);
-
     }
+
+    clean.onclick = function (){
+        yp.innerHTML = "0 : 0 : 0 0";
+    }
+
+
 
 }
