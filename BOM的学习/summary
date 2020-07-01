@@ -4,7 +4,8 @@
     在客户端JavaScript中，Window对象是全局对象，所有表达式都在当前的环境中计算
     整个浏览器就是一个BOM对象
 
-2.Window下的属性
+2.Window下的方法
+    window可以省略，如window.alert() ; 可以简写成alert();
     2.1 alert();
         警告框
 
@@ -33,4 +34,71 @@
              而打开的子窗口会有一个opener对象，该对象就是父窗口的window对象，所以可以通过该对象
              控制父窗口，因此他们可以相互控制
 
-      2.5
+3.window下的对象
+        如上window也可以省略  如window.location.host 可以简写location.host
+    3.1 location对象的属性
+            location.hash;
+            【功能】如果存在，表示锚点部分
+
+            location.host
+            【功能】主机名+端口号
+
+            location.hostname
+            【功能】主机名
+
+            location.href
+            【功能】整个URL
+
+            location.pathname
+            【功能】路径号
+
+            location.port
+            【功能】端口号
+
+            location.protocol
+            【功能】协议部分
+
+            location.search
+            【功能】查询字符串
+            【注意】跟在？后面的字符串
+            可以设置 如 location.search = value;
+
+        location对象的方法
+            assign();
+            【功能】跳转到指定的URL
+
+            reload();
+            【功能】重定向  已经被废弃
+
+            replace();
+            【功能】跳转到指定的新的URL
+            与assign的区别就是重新打开，不能返回
+
+
+    3.2 history对象   (案例可见history.html)
+        history下的属性
+
+        history.length
+        【功能】返回当前history对象中的历史记录数
+         具体操作：
+         如  在当前网页打开了几次网页操作（如锚点等）就会返回具体的历史记录总数
+
+
+        history下的方法
+
+        back()
+        【功能】返回上一条历史记录，类似后退
+
+        forward()
+        【功能】前进到下一条历史记录，类似前进
+
+        go(number);  number = 0 是刷新界面
+        【功能】跳到指定的历史记录
+
+
+
+
+
+
+
+

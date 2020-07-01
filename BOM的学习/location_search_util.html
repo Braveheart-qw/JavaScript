@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        <script type="text/javascript">
+
+            function get(){
+                var str = (location.search).substring(1);
+                var array = str.split("&");
+                var key = [];
+
+                for (var i in array){
+                    key.push(array[i].split("="));
+                }
+
+                for (var j in key){
+                    alert(key[j]);
+                }
+            }
+
+
+                location.search = "?name=qian&pass=123";
+
+        </script>
+    <title>Title</title>
+</head>
+<body>
+<input type = "submit" value="提交" onclick="get()">
+</body>
+</html>

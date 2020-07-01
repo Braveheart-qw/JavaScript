@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript">
+        window.onload = function () {
+
+            var btn = document.getElementById("btn");
+            btn.onclick = function (){
+                alert(history.length);
+            }
+
+            var forward = document.getElementById("forward");
+            forward.onclick = function (){
+                history.forward();
+            }
+
+            var back  =  document.getElementById("back");
+            back.onclick = function(){
+                history.back();
+            }
+
+            var go = document.getElementById("go");
+            go.onclick = function (){
+                history.go(2);
+            }
+        }
+
+    </script>
+    <title>Title</title>
+</head>
+<body>
+<input type = "submit" value = "记录总数" id = "btn">
+<input type = "submit" value = "前进" id = "forward">
+<input type = "submit" value="后退" id = "back">
+<input type = "submit" value="go" id = "go">
+
+
+</body>
+</html>
