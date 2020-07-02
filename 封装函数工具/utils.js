@@ -40,3 +40,24 @@ function  ByClassName(classstr) {
     return result;
 
 }
+
+//删除空白节点元素      (从子节点删除)  这个封装函数只是返回了满足条件的节点数组，并没有从父节点上删除
+function deleteSpaceNode(elem){
+    var result = [];
+    for(var i = elem.length-1 ; i>=0 ; i--){
+        if(!/^\s+$/.test(elem[i].nodeValue)){
+            result.push(elem[i]);
+        }
+    }
+    return result;
+}
+
+//删除空白节点元素  (从父节点彻底删除) 利用父节点的属性removeChild()来删除不需要的子节点;
+function deleteParentSpaceNode(parent){
+    var childNode = parent.childNodes;
+    for (var i = childNode.length-1 ; i >= 0 ; i--){
+        if(childNode[i].nodeType == 3 && /^\s+$/.test(childNode[i].nodeValue)){
+            parent.removeChild(childNode[i]);
+        }
+    }
+}
