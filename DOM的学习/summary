@@ -3,10 +3,11 @@
     【概念】dom就是html开始到结束
     【功能】打通html、css和js壁垒的工具
 
-     dom三大节点
-     元素节点  如<div></div>  <p></p>等标签
-     属性节点  设置的属性等
-     文本节点  标签所包含的文本
+     dom三大节点  （都包含有三种非常常用的属性，分别为nodeName ， nodeType ，nodeValue）
+                                                     nodeName     nodeType      nodeValue
+     元素节点  如<div></div>  <p></p>等标签             元素名称        1             null
+     属性节点  设置的属性等                              属性名称        2             属性值
+     文本节点  标签所包含的文本                         #text           3              文本内容
 
 2.获取元素节点的方法？(见封装函数工具目录)
         2.1 document.getElementById();
@@ -62,6 +63,52 @@
     只适合谷歌/火狐/safari浏览器
 
     IE使用元素节点.currentStyle["需要的类型"];
+
+
+
+4.set/getAttribute();
+    removeAttribute();
+
+    操作属性值
+    如：
+        元素节点对象.title      //获取title值
+        元素节点对象.getAttribute("title") //获取title值
+
+        元素节点对象.title = value       //设置title值
+        元素节点对象.setAttribute("title" , value)//设置title值
+
+        因此元素对象对属性值的更改都可以用
+        set/getAttribute来完成
+
+        区别：
+            1.对于class属性范围的区别，点操作是通过className，
+            而set/getAttribute是通过class
+
+            2.set/getAttribute支持设置用户自定义的属性
+
+            3.removeAttribute支持删除属性
+
+5.元素节点的属性
+        5.1 childNodes
+        【功能】获取当前元素节点的所有子节点
+        返回的是一个装有子节点对象的节点列表集合 从下标 0 开始
+
+
+        5.2 firstChild 快速找当当前元素节点子节点的第一个
+            lastChild 快速找到当前元素节点子节点的最后一个
+
+
+6.删除空白节点
+        使用childNodes获取到子节点时会将换行，空格，等算作一个节点
+        【问题】如何将空白节点删除
+            1.找出空白节点（利用正则表达式：/^\s+$/.test() 返回boolean类型）
+            遍历子节点列表集合，判断nodeType属性是否为3，并且利用以上正则表达式
+
+            2.从父节点删除空白节点(倒序删除，不然下标会混乱)
+            removeChild();
+
+
+
 
 
 
