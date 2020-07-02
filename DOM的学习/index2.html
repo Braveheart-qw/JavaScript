@@ -7,8 +7,8 @@
         window.onload = function() {
             var btn = document.getElementById("btn");
             btn.onclick = function () {
-                var p = opener.document.getElementById("p");
-                p.style.border = "1px solid #fe0000";
+                var p = opener.document.getElementsByTagName("p");
+                p[1].style.border = "1px solid #fe0000";
                 alert(p.style.border);
             }
         }

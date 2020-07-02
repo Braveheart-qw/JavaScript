@@ -37,6 +37,26 @@
                 document.getElementById('box').className = value;//设置class值
 
 
+        2.2 document.getElementsByTagName();    可以多选，支持从node节点下开始查找
+            node.getElementByTagName();   //从node节点寻找符合条件的标签
+        【功能】通过标签名来获取元素节点
+         返回一个元素对象数组    下标从0开始
+         如 p[1].style.border = "1px solid #fe0000";
+
+
+        2.3 document.getElementsByName();       可以多选
+        【功能】通过name值来获取元素节点
+        返回一个元素对象数组
+        【注意】一般只有文本输入框的元素节点才有
+
+        2.4 document.getElementsByClassName();  可以多选，支持从node节点下开始查找
+        【功能】获取node节点下，所有符合条件的class
+        返回一个元素对象数组
+        【注意】在低版本的IE浏览器上是不支持的
+
+
+
+
 
 
 
