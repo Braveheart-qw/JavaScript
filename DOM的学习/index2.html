@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        window.onload = function() {
+            var btn = document.getElementById("btn");
+            btn.onclick = function () {
+                var p = opener.document.getElementById("p");
+                p.style.border = "1px solid #fe0000";
+                alert(p.style.border);
+            }
+        }
+
+
+    </script>
+</head>
+<body>
+    <input type="submit" value="控制父窗口对象" id = "btn">
+</body>
+</html>

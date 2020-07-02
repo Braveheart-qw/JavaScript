@@ -1,0 +1,46 @@
+1.DOM的学习
+     document Object model
+    【概念】dom就是html开始到结束
+    【功能】打通html、css和js壁垒的工具
+
+     dom三大节点
+     元素节点  如<div></div>  <p></p>等标签
+     属性节点  设置的属性等
+     文本节点  标签所包含的文本
+
+2.获取元素节点的方法？
+        2.1 document.getElementById();
+        【功能】通过当前元素节点的id，获取对应元素节点
+
+        元素节点属性
+            通过document.getElementById获得元素节点对象，访问它的属性
+            tagName  获取元素节点的标签名
+            innerHTML 获取标签间的内容
+
+            还可以获取或设置HTML的属性
+            id
+            title
+            style
+            className
+
+            如：document.getElementById('box').id;
+                document.getElementById('box').id = value;//设置id
+                document.getElementById('box').title;//获取标题
+                document.getElementById('box').title = value;//设置标题
+                var css = document.getElementById('box').style;//获取css的对象
+                通过css对象可以获取样式的值或者设置样式
+                如：
+                    css.color
+                    css.border 等
+
+                document.getElementById('box').className;//获取class
+                document.getElementById('box').className = value;//设置class值
+
+
+
+
+
+
+
+
+
