@@ -139,6 +139,12 @@
 
         8.2 复制节点
             cloneNode();
+            【格式】node.cloneNode();
+            【功能】复制节点node;
+            返回值:新复制的节点
+            参数: true  默认是false
+                  true:  复制文本
+                  false: 不复制文本
 
         8.3 插入节点
             insertBefore()；
@@ -151,6 +157,8 @@
 
         8.5 新节点替换旧节点
             replaceChild();
+            【格式】父节点.replaceChild(newNode , oldNode);
+
 
         8.6 将新节点追加到子节点列表的末尾
             appendChild();
