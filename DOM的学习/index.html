@@ -9,19 +9,13 @@
     <script>
         window.onload = function(){
             var odiv = document.getElementById("odiv");
-            var newNode = addNode("em" , "插入节点之前");
             var currendNode = odiv.getElementsByTagName("input")[1];
-            alert(insertAfter(newNode , currendNode).nodeName);
+            var newNode = currendNode.cloneNode(true);
+            odiv.insertBefore(newNode , currendNode);
 
 
         }
-        function deleteParentSpaceNode(parent){
-                var array = parent.childNodes;
-                for(var i in array)
-                    if (array[i].nodeType == 3 && /^\s+$/.test(array[i].nodeValue))
-                        parent.removeChild(array[i]);
 
-        }
 
     </script>
 
