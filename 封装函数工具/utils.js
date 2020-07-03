@@ -61,3 +61,35 @@ function deleteParentSpaceNode(parent){
         }
     }
 }
+
+//创建一个完整得节点(元素节点+文本节点)
+function addNode(node , text){
+    //1.创建一个新节点
+    var newNode = document.createElement(node);
+    //2.创建一个文本节点
+    var textNode = document.createTextNode(text);
+    //3.将文本节点添加到元素节点当中
+    newNode.appendChild(textNode);
+    //4.返回创建得新节点
+    return newNode;
+}
+
+//在某一个节点得后面插入新节点
+function insertAfter(newNode , oldNode){
+    //1.得到当前节点的父节点
+    var parent = oldNode.parentNode;
+    //2.删除父节点的空白节点
+    deleteParentSpaceNode(parent);
+    /*3.判断当前节点是否为最后一个节点
+    *   true: appendChild();
+    *    false: oldNode.nextSibing;
+    */
+    if(parent.lastChild == oldNode){
+        parent.appendChild(newNode);
+    }else{
+        parent.insertBefore(newNode , oldNode.nextSibling);
+    }
+    return newNode;
+}
+
+
