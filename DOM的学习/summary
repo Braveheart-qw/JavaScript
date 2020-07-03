@@ -81,8 +81,8 @@
         set/getAttribute来完成
 
         区别：
-            1.对于class属性范围的区别，点操作是通过className，
-            而set/getAttribute是通过class
+            1.对于class属性范围的区别，点操作是通过className，   如：元素节点对象.className;
+            而set/getAttribute是通过class                       元素节点对象.getAttribute("class");
 
             2.set/getAttribute支持设置用户自定义的属性
 
@@ -98,7 +98,7 @@
             lastChild 快速找到当前元素节点子节点的最后一个
 
 
-6.删除空白节点
+6.删除空白节点    (从子元素删除和父元素删除的区别  见封装函数工具)
         使用childNodes获取到子节点时会将换行，空格，等算作一个节点
         【问题】如何将空白节点删除
             1.找出空白节点（利用正则表达式：/^\s+$/.test() 返回boolean类型）
@@ -106,6 +106,73 @@
 
             2.从父节点删除空白节点(倒序删除，不然下标会混乱)
             removeChild();
+
+
+7.元素节点属性
+        ownerDocument
+        【功能】返回节点的根节点        不常用
+
+        parentNode
+        【功能】返回该节点的父节点
+
+        previousSibling
+        【功能】返回该节点的前一个同级节点
+        【注意】同级不是值相同的标签，而是在同一层次上的节点
+
+        nextSibling
+        【功能】属性返回该节点的后一个同级节点
+        【注意】同级不是值相同的标签，而是在同一层次上的节点
+
+        attributes
+        【功能】返回该节点的属性节点结合集合
+         返回属性对象集合
+        【注意】集合是无法使用下标访问
+        使用attributes["name"];取出的是一个属性对象
+        因此要结合nodeName、nodeType、nodeValue
+
+
+8.DOM不仅可以查找节点，也可以创建、复制、插入、删除、替换节点
+        8.1 创建节点
+            createElement()；
+            【参数】标签名
+            【注意】只能从根节点创建元素节点 如：document.createElement("div");
+
+        8.2 复制节点
+            cloneNode();
+
+        8.3 插入节点
+            insertBefore()；
+            【格式】父节点.insertBefore(newNode , oldNode);
+            【注意】js当中没有插入后一个节点，只可以自己封装函数    见utils.js
+
+
+        8.4 删除节点
+            removeChild();
+
+        8.5 新节点替换旧节点
+            replaceChild();
+
+        8.6 将新节点追加到子节点列表的末尾
+            appendChild();
+            【参数】需要插入的元素节点;
+
+        8.7 创建一个文本节点
+            createTextNode();
+            【参数】文本内容
+            【注意】只能从根节点创建元素节点 如：document.createElement("文本内容");
+
+        【注意】想要创建一个带文本内容的新节点必须，系统不支持的
+                所以得自己设计一个封装函数
+                流程：新建一个元素节点和一个文本节点，
+                      将文本节点添加到新元素节点
+                      这时候得元素节点就是一个带文本节点得元素节点
+                      代码流程见utils.js
+
+
+
+
+
+
 
 
 
