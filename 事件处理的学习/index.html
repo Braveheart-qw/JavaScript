@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        window.onload = function() {
+            var newNode = document.createElement("ul");
+            newNode.setAttribute("id" , "div1")
+
+            var newNode_btn = document.createElement("input")
+            newNode_btn.setAttribute("id" , "btn");
+            newNode_btn.setAttribute("type" , "submit");
+            newNode.appendChild(newNode_btn);
+            var body = document.getElementsByTagName("body")[0];
+            body.appendChild(newNode);
+
+            var odiv = document.getElementById("div1");
+            var btn = document.getElementById("btn");
+
+            odiv.addEventListener("click" , show);
+            btn.addEventListener("click" , show1);
+
+            function show(event){
+                alert("div1被单击");
+            }
+
+            function show1(event){
+                alert("input");
+                event.stopPropagation();
+            }
+
+
+
+
+
+
+
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+事件处理的学习
+
+1.HTML事件处理
+    直接添加到HTML结构中  如 <div onclick="func()">
+
+2.DOM0级事件处理
+    把一个函数赋值给一个事件处理程序属性
+    如：btn1.onclick = function(){
+
+    }
+    弊端：有两个相同事件会被覆盖
+
+
+3.DOM2级事件处理
+    addEventListener("事件名" , "事件处理函数" , "布尔值");
+    true : 事件捕获
+    false：事件冒泡
+   【格式】 元素节点.addEventListener();
+    优点：不会被覆盖
+
+
+    removeEventListener("事件名" , "事件处理函数" );
+    【功能】移除事件
+
+4.IE事件处理程序
+    attachEvent("事件名" ， "事件处理函数");
+    detachEvent("事件名" , "事件处理函数")
+    【注意】改事件名需要加on
+    【格式】元素节点.attachEvent();
+    可以封装函数，根据浏览器所支持来决定是否是用attachEvent;
+
+5.事件对象(event)
+    属性
+    type : 事件类型
+    target：目标
+
+    方法
+    stopPropagation(); 阻止事件冒泡
+    如：子节点和父节点都具有click事件，
+        但子节点被单击时，父节点也会触发
+
+
+    preventDefault();阻止默认的事件
+    如：a标签，点击之后将会默认跳转,
+        使用preventDefault()可以阻止
+
+6.有哪些事件
