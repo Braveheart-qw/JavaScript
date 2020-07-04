@@ -20,8 +20,12 @@
         var person = new Person();
         person.sex = "frame";
 
+        var arr=[{a:1},{}];
+        arr.forEach(function(item,idx){
 
-        alert(person.getSex());
+            item.b=idx;
+            alert(item.b);
+        });
     </script>
 </head>
 <body>
