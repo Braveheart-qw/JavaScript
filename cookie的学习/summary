@@ -1,0 +1,28 @@
+
+HTTP协议：web服务器将超文本传输到客户端的协议，无状态协议
+
+1.cookie: 缓存在本地客户端的数据   (有效时间：打开浏览器到关闭浏览器)
+
+        1.设置cookie (增)
+        document.cookie = "name = value";
+
+        2.删除cookie (删)
+        有效期设置成过去的事件 负数
+        oDate.setDate(oDate.getDate()-1);//直接被清楚
+        document.cookie = "name = value;expire"+oDate;
+
+        var oDate = new Date();
+        oDate.setDate(oDate.getDate()+3);//三天之后删除
+        document.cookie = "name = value;expire"+oDate;
+
+
+        3.修改cookie (改)
+        同名覆盖就可以
+
+
+        4.查询cookie
+        document.cookie;
+
+
+        【总结】可以简便操作封装cookie;
+                可以设置有效时长， 比如保存7天
