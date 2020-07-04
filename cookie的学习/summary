@@ -22,7 +22,10 @@ HTTP协议：web服务器将超文本传输到客户端的协议，无状态协�
 
         4.查询cookie
         document.cookie;
-
+        【注意】document.cookie 会在一条字符串中返回所有 cookie，比如：cookie1=value; cookie2=value; cookie3=value;
 
         【总结】可以简便操作封装cookie;
                 可以设置有效时长， 比如保存7天
+
+        【问题】在解析document.cookie 返回的所有cookie值时，会因为不知名原因多出空白符，导致判断错误
+         【解决】字符串.trim();   该方法只可以去除左右两边的字符
