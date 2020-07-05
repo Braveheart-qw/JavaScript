@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        <!--在工作当中一般不是用通用选择器，耗资源 -->
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            overflow: hidden;
+        }
+        div{
+            width: 100px;
+            height: 100px;
+            background: #fe0000;
+            position: absolute;
+            left: 0;
+            top:  0;
+        }
+
+    </style>
+    <script type="text/javascript">
+        window.onload = function() {
+            var obox = document.getElementById("box");
+            var left = parseInt(getComputedStyle(obox)['left']);
+            var top = parseInt(getComputedStyle(obox)['top']);
+            var width = parseInt(getComputedStyle(obox)['width']);
+            var height = parseInt(getComputedStyle(obox)['height']);
+            var moveX = 1;
+            var moveY = 1;
+
+
+            setInterval(function () {
+                left = currentLeft(left , width);
+                if (left == 0){
+                    moveX = Math.abs(moveX);
+                }
+                if (left == innerWidth - width){
+                    moveX = -Math.abs(moveX);
+                }
+
+                top = currentTop(top , height);
+                if (top == 0){
+                    moveY = Math.abs(moveY);
+
+                }
+                if (top == innerHeight - height){
+                    moveY = -Math.abs(moveY);
+
+                }
+
+                left += moveX;
+                top  += moveY;
+                obox.style.left = left+"px";
+                obox.style.top = top+"px";
+                console.log("top"+top);
+
+
+            },5);
+        }
+
+        function currentLeft(left , width) {
+           if (left <= 0){
+               left = 0;
+           }
+           if (left >= innerWidth - width){
+               left = innerWidth-width;
+           }
+           return left;
+        }
+        function currentTop(top , height) {
+            if (top <= 0){
+                top = 0;
+            }
+            if (top >= innerHeight - height){
+                top = innerHeight-height;
+            }
+            return top;
+        }
+
+
+
+
+    </script>
+</head>
+<body>
+    <div id="box">
+
+    </div>
+</body>
+</html>

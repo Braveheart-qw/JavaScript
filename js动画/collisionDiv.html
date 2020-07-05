@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+        }
+
+        div{
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: absolute;
+            left: 0;
+            right:0;
+            border-radius: 50%;
+        }
+
+        #box2{
+            background: crimson;
+            left: 190px;
+            top: 500px;
+        }
+
+
+    </style>
+    <script type="text/javascript">
+
+        window.onload = function(){
+            var box1 = document.getElementById("box1");
+            var box2 = document.getElementById("box2");
+            var left1 =parseInt(getComputedStyle(box1)['left']);
+            var top1 = parseInt(getComputedStyle(box1)['top']);
+            var width1 = parseInt(getComputedStyle(box1)['width']);
+            var height1 = parseInt(getComputedStyle(box1)['height']);
+            var left2 = parseInt(getComputedStyle(box2)['left']);
+            var top2 = parseInt(getComputedStyle(box2)['top']);
+            var width2 = parseInt(getComputedStyle(box2)['width']);
+            var height2 = parseInt(getComputedStyle(box2)['height']);
+
+            var move1X = 1;
+            var move1Y = 1;
+            var move2X = 2;
+            var move2Y = 2;
+            setInterval(function () {
+                var bool = collisionDiv(box1 , box2);
+                if(bool){
+                    move1X = -move1X;
+                    move1Y = -move1Y;
+                    move2X = -move2X;
+                    move2Y = -move2Y;
+                }
+
+
+
+                left1 = currentLeft(left1 , width1);
+                if (left1 == 0){
+                    move1X = Math.abs(move1X);
+                }
+                if (left1 == innerWidth - width1){
+                    move1X = -Math.abs(move1X);
+                }
+
+                top1 = currentTop(top1 , height1);
+                if (top1 == 0){
+                    move1Y = Math.abs(move1Y);
+
+                }
+                if (top1 == innerHeight - height1){
+                    move1Y = -Math.abs(move1Y);
+                }
+
+                left2 = currentLeft(left2 , width2);
+                if (left2 == 0){
+                    move2X = Math.abs(move2X);
+                }
+                if (left2 == innerWidth - width2){
+                    move2X = -Math.abs(move2X);
+                }
+
+                top2 = currentTop(top2 , height2);
+                if (top2 == 0){
+                    move2Y = Math.abs(move2Y);
+
+                }
+                if (top2 == innerHeight - height2){
+                    move2Y = -Math.abs(move2Y);
+                }
+
+                left1 += move1X;
+                top1  += move1Y;
+                left2 += move2X;
+                top2  += move2Y;
+                console.log(left1+"   "+ top1);
+
+                box1.style.left = left1+"px";
+                box1.style.top = top1+"px";
+                box2.style.left = left2+"px";
+                box2.style.top = top2+"px";
+            },5);
+
+        }
+
+
+
+
+        function collisionDiv(block1 , block2){
+            //获取自身元素的宽度
+            var width1 = parseInt(getComputedStyle(block1)["width"]);
+            var width2 = parseInt(getComputedStyle(block2)["width"]);
+
+            //获取自身元素的高度
+            var height1 = parseInt(getComputedStyle(block1)["height"]);
+            var height2 = parseInt(getComputedStyle(block2)["height"]);
+
+            //获取元素的left
+            var left1 = parseInt(getComputedStyle(block1)["left"]);
+            var left2 = parseInt(getComputedStyle(block2)["left"]);
+
+            //获取元素的top
+            var top1 = parseInt(getComputedStyle(block1)["top"]);
+            var top2 = parseInt(getComputedStyle(block2)["top"]);
+
+
+            //判断元素之间的中心点距离是否小于宽高的总和/2
+            //中心点
+            var centerHorizontal1 = left1 + width1/2;
+            var centerHorizontal2 = left2 + width2/2;
+
+            var centerVertical1 = top1 + height1/2;
+            var centerVertical2 = top2 + height2/2;
+
+            if(Math.abs(centerHorizontal1-centerHorizontal2) < (width1+width2)/2 && Math.abs(centerVertical1-centerVertical2) < (height1+height2)/2){
+
+                return true;
+            }
+            //未发生碰撞
+            return false;
+        }
+
+        function currentLeft(left , width) {
+            if (left <= 0){
+                left = 0;
+            }
+            if (left >= innerWidth - width){
+                left = innerWidth-width;
+            }
+            return left;
+        }
+
+        function currentTop(top , height) {
+            if (top <= 0){
+                top = 0;
+            }
+            if (top >= innerHeight - height){
+                top = innerHeight-height;
+            }
+            return top;
+        }
+
+    </script>
+</head>
+<body>
+    <div id="box1">
+
+    </div>
+
+    <div id="box2">
+
+    </div>
+</body>
+</html>
