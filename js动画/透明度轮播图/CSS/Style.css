@@ -1,0 +1,48 @@
+*{
+    margin: 0;
+    padding:0;
+    list-style: none;
+}
+div{
+    position: relative;
+    margin: 50px auto;
+    width: 600px;
+    height: 400px;
+}
+
+#box .img_ul li{
+    position: absolute;
+}
+
+#box .img_ul li>img{
+    width: 600px;
+    height: 400px;
+    display: block;
+    opacity: 0;
+}
+#box .img_ul li:first-child img{
+    opacity: 1;
+}
+
+
+button{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    margin: 0 10px;
+    opacity: .5;
+}
+#btn1{
+    left: 0;
+    top: 50%;
+    margin-top: -25px;
+    border-radius: 50%;
+
+}
+#btn2{
+    right: 0;
+    top: 50%;
+    margin-top: -25px;
+    border-radius: 50%;
+}
+
