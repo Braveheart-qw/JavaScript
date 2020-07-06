@@ -27,3 +27,62 @@
 
          【和java的区别】可以在外部添加属性以及方法
          因此可以说，js的对象 具有动态性，java是静态的
+
+         对象 {} 表示;
+
+     对象构建的方法 1.  var person = {
+                        属性
+                        方法
+                }
+
+                   2.  function s(){
+                         属性
+                         方法
+                   }
+
+
+    以上是通过构造器来模拟的class
+
+    如何继承呢？
+    可以直接在子类上面运行父类
+
+    如：      父类：function person(){
+                    this.name = "qian";
+                    this.age  = 18;
+                    this.eat = function(){
+                        return "hello";
+                    }
+              }
+
+              子类：function student(){
+                   person.apply(this);          //像这种直接继承       这时候的this指针指向了window对象 需要使用
+                                      //.apply(this , [需要继承到子类的数组]) 后面参数可省略
+                                      //.call 和apply差不多， 第二个参数有点区别  不是传递数组，还是把每一个值分开传
+
+
+              }
+
+              var stu = new student();
+              alert(stu.age);
+
+
+原型链和继承
+    1.原型是什么？
+        如：function person(){
+        };
+
+        person.name = "5";    利用构造器函数是无法在外部向里面添加属性或者方法
+
+        因此需要使用原型链，javascript里面所有的对象都是从原型上继承的如：Date 从Date.prototype上继承的String 也是等等
+
+        所以原型链，简单的说可以为一个类(假类)添加属性或者方法的
+
+        person.prototype.name = "5";这样就可以成功添加进去
+
+        原型的五条原则：
+
+        所有的引用类型（数组，对象，函数）都具有对象特性，即可自由扩展属性（除了null以外）
+        所有的引用类型（数组，对象，函数），都有一个__proto__属性，属性值是一个普通的对象 （隐式原型）
+        所有的函数，都有一个prototype属性，属性值也是一个普通的对象
+        所有的引用类型（数组，对象，函数），__proto__属性值值向他构造函数的prototype属性值
+        当试图得到一个对象的某个属性时，如果这个对象本身没有这个属性，那么会去它的__proto__(即它的构造函数的prototype)中寻找
