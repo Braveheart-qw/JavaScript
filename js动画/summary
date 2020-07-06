@@ -8,3 +8,52 @@ js动画学习
             【注意】反复取反的问题
 
         2.2 元素和元素之间如何检测碰撞
+            判断两个元素中心点的距离（垂直和水平方向都需要判断）
+            如果小于等于 两个元素的宽度（高度）的一半
+            说明发生碰撞
+
+            中心点+left 或者 top 具体见collisionDiv.html
+
+    3.js_animation封装
+        见animat.html
+
+
+    4.js透明度轮播的实现
+    【错误】1.循环为元素节点添加事件时，可以在节点中添加一个数用来记录位置，因为
+            for循环时同步执行，onclik是异步执行，但执行click事件时，会向上寻找变量，
+            而上面所形成的闭包会受到其它因素的影响，因此，所添加的事件都是同一个数。
+            for (var i of select_li){
+                     m++;
+                     i.count = m;           //解决方法
+                     i.onclick = function () {
+                         gotoTo(currentNumber , this.count);
+
+                     }
+                 }
+
+            2.不要在addEventListener中的句柄里添加参数，否则会立即自动执行
+            解决方案：可以使用一个匿名函数作为观察者的身份存在，当监听事件被触发时，在由观察者来调用具体需要的函数
+
+            odiv.addEventListener("click" , function(){
+                    move(5);        //具体需要的函数
+            })
+
+            3.如何给匿名函数添加参数
+
+            (function(){                    传值  (function(a,b){
+
+                                                   })(a,b);
+
+            })();       可以直接调用
+
+            或者将匿名函数赋给一个变量
+            var p = function(){                 var p = function(a , b){
+
+                                                 }
+                                                 p(a,b);
+
+            }
+            p();
+
+
+
