@@ -73,7 +73,7 @@
 
         person.name = "5";    利用构造器函数是无法在外部向里面添加属性或者方法
 
-        因此需要使用原型链，javascript里面所有的对象都是从原型上继承的如：Date 从Date.prototype上继承的String 也是等等
+        因此需要使用原型链，javascript里面所有的对象都是从原型上继承的如：Date 从Date.prototype上继承的   String也是 等等
 
         所以原型链，简单的说可以为一个类(假类)添加属性或者方法的
 
