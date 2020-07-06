@@ -4,28 +4,19 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <script type="text/javascript">
-        function Person(){
-            this.name = "qian wang";
+        function person(){
+            this.name = "qian";
             this.age  = 18;
-            this.getName = function(){
-                return this.name;
-            }
-            this.getAge = function(){
-                return this.age;
-            }
-            this.getSex = function(){
-                return this.sex;
+            this.eat = function(){
+                return "hello";
             }
         }
-        var person = new Person();
-        person.sex = "frame";
+        
+        person.prototype.sss = "xxx";
+        alert(new person().sss);
 
-        var arr=[{a:1},{}];
-        arr.forEach(function(item,idx){
 
-            item.b=idx;
-            alert(item.b);
-        });
+
     </script>
 </head>
 <body>
