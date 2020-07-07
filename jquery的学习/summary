@@ -16,13 +16,6 @@ jQuery的学习
         因此，对于checked使用prop
 
 
-        addClass
-        【格式】元素节点.addClass
-
-        removeClass
-        【格式】元素节点.removeClass
-
-
         append();
 
         为匹配父元素的末尾添加子元素
@@ -39,6 +32,9 @@ jQuery的学习
         addClass();
         为匹配的元素添加类名,并且可以匹配相应的样式
         参数：名称
+
+         removeClass()
+         【格式】元素节点.removeClass
 
         bind
         为元素添加事件
