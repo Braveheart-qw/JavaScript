@@ -1,0 +1,76 @@
+jQuery的学习
+        $就是jquery   同dom封装的获取元素节点原理相同
+
+        1.与原生js对应
+        $:就是选择器
+        html    ==  innerHTML
+        【格式】元素节点.html()
+
+        val     ==  input里的value属性
+        【格式】元素节点.val()
+
+        prop    ==
+        attr    == attribute
+        【格式】元素节点.prop()
+        【注意】其它没什么区别，主要checked默认选中在attr里面没有变化
+        因此，对于checked使用prop
+
+
+        addClass
+        【格式】元素节点.addClass
+
+        removeClass
+        【格式】元素节点.removeClass
+
+
+        append();
+
+        为匹配父元素的末尾添加子元素
+        参数：html标签.append("<h1>这样</h1>")
+        参数：也可以是当前页面存在的元素节点（相当于剪切，粘贴）(如果被剪切的元素存在子元素也会被一起剪切)
+        参数：也可以是新创建的元素节点
+
+        after();     .before() 与after()相反
+        添加兄弟节点
+        参数：html标签.append("<h1>这样</h1>")
+        参数：也可以是当前页面存在的元素节点（相当于剪切，粘贴）(如果被剪切的元素存在子元素也会被一起剪切)
+        参数：也可以是新创建的元素节点
+
+        addClass();
+        为匹配的元素添加类名,并且可以匹配相应的样式
+        参数：名称
+
+        bind
+        为元素添加事件
+        如：元素节点.bind("click" , function(){
+            //执行语句
+        })
+
+        在jQuery 1.4中，我们可以通过传递一个事件类型/处理函数的数据键值对映射来绑定多个事件处理程序，例如：
+
+        $('#foo').bind({
+          click: function() {
+            // do something on click
+          },
+          mouseenter: function() {
+            // do something on mouseenter
+          }
+        });
+
+
+        .css()
+        获取匹配元素集合中的第一个元素的样式属性的值设置每个匹配元素的一个或多个CSS属性。
+
+        .eq(index)
+        可以选择集合中的某一个下标为index的对象
+
+        .last()
+        获取匹配元素集合中最后一个元素。
+
+        index()             【重点】;
+        【格式】在元素集合中找出指定元素节点的下标
+        比如：用for in 循环遍历一个元素节点对象数组，然后每次判断是否符合要找的某一个元素，是就返回下标
+
+
+【注意】当元素节点添加事件之后，this指针就不是指向window，还是指向当前元素节点
+        和函数一个道理，函数里的this是指向本身的
