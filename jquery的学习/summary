@@ -36,11 +36,26 @@ jQuery的学习
          removeClass()
          【格式】元素节点.removeClass
 
-        bind
+        bind()
         为元素添加事件
         如：元素节点.bind("click" , function(){
             //执行语句
         })
+
+        parent()
+        找到当前元素的直接父元素
+
+        child()
+        所有的子元素
+
+        find()
+        所有的后代子元素
+
+        next()
+        当前节点元素的后一个节点元素
+
+        pref()
+        当前节点元素的前一个节点元素
 
         在jQuery 1.4中，我们可以通过传递一个事件类型/处理函数的数据键值对映射来绑定多个事件处理程序，例如：
 
@@ -70,3 +85,44 @@ jQuery的学习
 
 【注意】当元素节点添加事件之后，this指针就不是指向window，还是指向当前元素节点
         和函数一个道理，函数里的this是指向本身的
+
+
+利用jquery来使用ajax
+    $.ajax({
+        type: "get",
+        url:   "需要请求的页面地址"
+
+        //如果需要带数据传送
+        data:{
+            name : value;
+        },
+
+        success:function(resp){
+            //请求成功使调用
+        }
+
+        error: function(){
+            //请求失败时调用
+        }
+    })
+
+    但是在ajax中具有回调地狱的bug，因此我们需要使用以下
+    $.ajax({
+        type : "get",
+        url  : "需要请求的地址"
+
+    }).done(function(){
+            //请求成功时调用       //以后调用的ajax可以type：请求方式可以省略
+            调用第二个ajax
+            $.ajax({
+            url:"需要请求的地址"，
+
+            }).done(function(){
+            调用第三个ajax;
+            $.ajax({
+            url:"需要请求的地址"，
+            })
+            })
+    })
+
+     这样就可以解决回调地狱
