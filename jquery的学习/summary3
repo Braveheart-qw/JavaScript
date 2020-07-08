@@ -23,7 +23,7 @@ AJAX的学习
             //3 ： 已经返回了部分数据
             //4 ： 数据已经全部返回
 
-            if(xhr,readyState != 4){
+            if(xhr.readyState != 4){
                 return ;
             }
             if(xhr.status >= 200 && xhr.status <= 300){
