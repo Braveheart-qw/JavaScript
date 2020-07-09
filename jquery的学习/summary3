@@ -62,6 +62,22 @@ AJAX的学习
 
 3.解决跨域问题
     3.1 JSONP
+        json是一种数据存储格式，jsonp是一种数据交互规范
+        使用ajax来解决jsonp的问题，在原生js当中是利用script标签可以跨域的特点来解决jsonp的问题，
+        而这里是利用ajax来解决的，因此，ajax和jsonp并没有什么特殊关系
+        利用百度的热搜方式做出关键字热搜
+        $.ajax({
+            type : 'get',
+            url  : 'https://www.baidu.com/sugrec'，
+            dataType:'jsonp',
+            jsonp : 'cb',
+            data : {
+                wd : 'json',        //热搜关键字，替换这里就可以
+            }
+        }).done(function(resp){
+                alert(resp);
+        })
+
 
     3.2 CORS
 
