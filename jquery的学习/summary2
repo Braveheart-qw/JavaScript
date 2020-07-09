@@ -39,6 +39,26 @@ jQuery动画的学习
             并且将动画事件加入队列
 
 
+    扩展：
+    $.each()
+    可以遍历jquery对象
+    $.each($('li') , function(i , val){
+            i是下标
+    })
+
+    可以遍历一维数组
+    $.each(arry1 , function(i , val){
+            i是下标
+            val是值
+    })
+
+    可以遍历二维数组
+    $.each(arr2,function(i,item){
+   //两个参数，第一个参数表示下标，第二个参数表示一维数组中的每一个数组
+}
+
+
+
 
 
 
