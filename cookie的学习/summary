@@ -8,7 +8,7 @@ HTTP协议：web服务器将超文本传输到客户端的协议，无状态协�
 
         2.删除cookie (删)
         有效期设置成过去的事件 负数
-        oDate.setDate(oDate.getDate()-1);//直接被清楚
+        oDate.setDate(oDate.getDate()-1);//直接被清除
         document.cookie = "name = value;expire"+oDate;
 
         var oDate = new Date();
