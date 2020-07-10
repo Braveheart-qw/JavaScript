@@ -61,12 +61,27 @@ jQuery的学习
 
         $('#foo').bind({
           click: function() {
-            // do something on click
+            // do something on click            //也可以调用有名函数，元素节点对象.off()可以某一时间，如.off('mouseover')；
           },
           mouseenter: function() {
             // do something on mouseenter
           }
         });
+        【注意】在jquery当中存在问题
+        问题1：使用document动态插入标签时，如果出去bind方法前，是可以被附上bind事件效果，如果在后面就无法触发。
+            解决方案：插入标签写在前面
+
+        问题2：使用on绑定事件时，也会触发以上效果
+        解决方案：事件代理，给需要添加事件得父元素添加on，
+        如：给li添加事件
+        $('ul').on('click' ,'li', function(){       给li标签得父元素ul添加on，具体指定在第二个参数
+                $(this).css('background' , '#fe0000');
+            })
+
+            $('ul').append('<li>6</li>');       //这是新添加得li标签
+
+
+
 
 
         .css()
@@ -82,9 +97,11 @@ jQuery的学习
         【格式】在元素集合中找出指定元素节点的下标
         比如：用for in 循环遍历一个元素节点对象数组，然后每次判断是否符合要找的某一个元素，是就返回下标
 
+        remove()  删除节点      元素节点1.remove()  元素节点1将会被删除
+        empty()   删除节点内容  元素节点1.empty()    元素节点1得内容将会被删除
 
 【注意】当元素节点添加事件之后，this指针就不是指向window，还是指向当前元素节点
-        和函数一个道理，函数里的this是指向本身的
+        和函数一个道理，函数里的this是指向本身所代表得html标签(千万不能误以为是jquery对象)
 
 
 利用jquery来使用ajax
