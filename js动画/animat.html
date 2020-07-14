@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: #ff0000;
+            opacity: 0.2;
+        }
+    </style>
+    <script type="text/javascript">
+
+          window.onload = function(){
+                var box = document.getElementById("box");
+                animate(box , "opacity" , 1);
+          }
+
+
+
+        //获取某一个元素节点的属性值
+        function getStyle(element , property){
+
+            var current= null;
+            current = getComputedStyle ? getComputedStyle(element)[property] : element.currentStyle[property];
+
+            return  current;
+        }
+        //封装的动画 某一个元素的某一个属性需要达到什么样的目的
+        function animate(element , property ,target){
+              if (property == "opacity")
+                  target *= 100;
+              clearInterval(timer);
+            //利用定时器
+           var timer = setInterval(function () {
+               var currentValue = parseInt(getStyle(element, property));
+
+               if (property == "opacity"){
+                   currentValue = Math.round(parseFloat(getStyle(element, property))*100);
+                   //达到减速效果
+                   //每一次的currentValue都在改变
+                   var speed = (target - currentValue)/30;          //核心 要想达到减速效果，就需要所加的值越来越小
+
+                   element.style[property] = String((currentValue + speed)/100);
+               }else {
+                   //达到减速效果
+                   //每一次的currentValue都在改变
+                   var speed = (target - currentValue) / 30;            //核心要想达到减速效果，就需要所加的值越来越小
+                   element.style[property] = currentValue + speed + "px";
+               }
+           },200);
+        }
+    </script>
+</head>
+<body>
+    <div id="box">
+
+    </div>
+</body>
+</html>
