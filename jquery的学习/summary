@@ -61,7 +61,7 @@ jQuery的学习
 
         $('#foo').bind({
           click: function() {
-            // do something on click            //也可以调用有名函数，元素节点对象.off()可以某一时间，如.off('mouseover')；
+            // do something on click            //也可以调用有名函数，元素节点对象.off()可以释放某一事件，如.off('mouseover')；
           },
           mouseenter: function() {
             // do something on mouseenter
