@@ -3,10 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>外部引用js</title>
-    <script text="java/javascript" src="dome1_02.js">
+    <script>
+       function sum(n){
+           if (n == 1){
+               return 1;
+           }else{
+               return sum(n-1)*n;
+           }
+       }
+
+       alert(sum(6));
+
 
     </script>
-
 </head>
 <body>
     <input type="button" value="放大" id="btn" />
