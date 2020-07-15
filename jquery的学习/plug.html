@@ -29,9 +29,10 @@
     <div>
 
     </div>
-<ul>
+<ul class="李傻子">
 
 </ul>
+<input id="btn" class="我是class" value="我是value"/>
 </body>
 <script type="text/javascript">
 
@@ -56,7 +57,8 @@
 
             })
         })(jQuery);
-
-        $('div:first-child').randomColor();
+        var btn = document.getElementsByTagName("input")[0];
+        console.log("取出class，就在里面输入class   "+btn.getAttribute('class'));
+        console.log("取出value，就在里面输入class   "+btn.getAttribute('value'));
 </script>
 </html>
