@@ -1,0 +1,74 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        table{
+            margin: auto;
+            text-align: center;
+        }
+    </style>
+    <script type="text/javascript">
+        function btn1(){
+            var table = document.getElementById("table01");
+            var tr = document.createElement("tr");
+            var str = "<td>默认</td>"
+                +"<td><input type='button' value='-' onclick = 'mov(this)' /><span class='s'>1</span><input type='button' value='+' onclick = 'add(this)' /></td>"
+                +"<input class='jiage' type = 'text' />"
+                +"<td><input type='button' value='修改' onclick = 'rename(this)'/>"
+                +"<input type='button' value='删除' onclick = 'del(this)' /></td>";
+            tr.innerHTML = str;
+            table.appendChild(tr);
+        }
+        function del(obj){
+            var tr = obj.parentNode.parentNode;
+            var table = tr.parentNode;
+            table.removeChild(tr);
+        }
+        function rename(obj){
+            var strname = prompt("请输入商品名称");
+            var tr = obj.parentNode.parentNode;
+            tr.firstChild.innerText = strname;
+        }
+        function add(obj){
+            var td = obj.parentNode;
+            var num = td.childNodes[1];
+            num.innerText = (parseInt(num.innerText)+1)
+        }
+        function mov(obj){
+            var td = obj.parentNode;
+            var num = td.childNodes[1];
+            var n = parseInt(num.innerText)-1;
+            num.innerText = n>0?n:0;
+        }
+var ss;
+        function sum(){
+            alert(ss);
+            var s = document.getElementsByClassName('s');
+            var jia = document.getElementsByClassName('jiage');
+            for(var i of jia){
+
+                if (i.value != " "){
+                    console.log(typeof parseInt(i.value));
+                    ss += parseInt(i.value);
+                }
+            }
+            document.getElementById('ssss').value = ss;
+        }
+
+    </script>
+</head>
+<body>
+<input type="button" value="添加" onclick="btn1()" />
+<input type="button"  value="计算总金额" onclick="sum()"/>
+总金额: <input type="text" id="ssss"/><br>
+<table border="1" cellspacing="0" id="table01">
+    <tr>
+        <th>名称</th>
+        <th>数量</th>
+        <th>价格</th>
+        <th>操作</th>
+    </tr>
+</table>
+</body>
+</html>
