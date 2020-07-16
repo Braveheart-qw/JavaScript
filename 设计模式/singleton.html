@@ -4,30 +4,25 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <script type="text/javascript">
-        //1.构造一个类
+        //利用构造函数构建一个类
         function Person(){
-            //2.判断当前内存中是否已经存在类的实例
-            //不存在就创建
-            if (!Person._instance){
-
-                    Person._instance = {
-                        name : 'qian',
-                        sex  : 'frame',
-                        age  : '22',
-                        eat  : function () {
-                            return "特能吃";
-                        }
+            if(!Person._instance)
+                Person._instance = {
+                    name :  'qian',
+                    age  :  '18',
+                    sex  :  'frame',
+                    eat  : function(){
+                        alert("能吃是");
                     }
-
-            }
+                }
             return Person._instance;
         }
 
         var p1 = new Person();
         var p2 = new Person();
-        p1.specialty = "帅";
-        p2.specialty = "丑";
-        alert(p1.specialty+p2.specialty);
+        p2.name = "wang";
+        console.log(p1.name + " "+p2.name);
+        alert(p1 === p2);
     </script>
 </head>
 <body>
