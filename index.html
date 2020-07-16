@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        //*******************nodeName******nodeType****************
+        function lookNodeName(){
+            var o = document.getElementById("o1")
+            o.removeAttribute('id');
+            alert("节点名字:"+o.nodeName)
+            alert("节点类型:"+o.nodeType)
+        }
+
+        //**************************属性操作************************
+        function setA(){
+            var a01 = document.getElementById("a01")
+            a01.setAttribute("href","http://www.baidu.com")
+        }
+
+
+        function getA(){
+            var a01 = document.getElementById("a01")
+            //alert(a01)
+            //a01是标签对象.getAttribute("href")
+            //标签对象 获取 href属性的数据
+            var a = a01.getAttribute("href")
+            alert(a)	//http://www.baidu.com
+            alert(a01.innerHTML)	//百度
+        }
+
+        function deleteA(){
+            var a01 = document.getElementById("a01")
+            a01.removeAttribute("href")
+        }
+
+        //**************************添加样式************************
+        function setSty01(){
+            var p01 = document.getElementById("p01")
+            p01.style.color = "red"
+            p01.style.fontSize = "35pt"
+        }
+
+        function setSty02(){
+            document.getElementsByName()
+            var p02 = document.getElementById("p02")
+            //二选一
+            //p02.setAttribute("class","hh")
+            p02.className = "hh"
+        }
+        //*******************新按钮************************
+        function newBut(){
+            var d = document.getElementById("divvv")
+            d.innerHTML = "<input type='button'>"
+        }
+
+
+
+        function ss(){
+            var s1 = document.getElementById("select1")
+
+            alert(s1.childNodes.length)//7
+            var o1 = s1.firstChild;
+            alert(o1.innerHTML)//?
+            alert(s1.nextSibling.innerHTML)//?
+            alert(s1.previousSibling.innerHTML)//?
+        }
+
+        function tagFIND(){
+            var pNodes = document.getElementsByTagName("p")
+            alert(pNodes.length)//3
+            alert(pNodes[1].innerHTML)
+        }
+
+
+        function appendC(){
+            var newNode = document.createElement("input")
+            newNode.type="text"
+            newNode.value="我是新的文本框"
+            newNode.style.color="red"
+
+            //上面三句相当于：
+            //<input type="text" value="我是新的文本框" style="color:red"/>
+            var d = document.getElementById("div03")
+            d.appendChild(newNode)
+        }
+
+        function createNewNode(){
+            var form1 = document.getElementById("form1")
+            var test01 = document.createElement("input")
+            test01.setAttribute("type","text")
+            test01.setAttribute("value","你好")
+            form1.appendChild(test01)
+            var bu = document.createElement("input")
+            form1.insertBefore(bu,document.getElementById("bu01"))
+            bu.type="button"
+            bu.value="新按钮"
+        }
+
+        function deleteN(){
+            var bu02 = document.getElementById("bu02")
+            bu02.parentNode.removeChild(bu02)
+        }
+    </script>
+
+    <style>
+        .hh{
+            color: blue;
+            font-size: 35pt;
+        }
+    </style>
+</head>
+<body>
+<!-- *********************document对象****************************** -->
+<!-- 每个载入浏览器的HTML文档 都会成为document对象 -->
+<!-- document对象  我们可以从脚本中对HTML页面中*所有的*元素进行访问 -->
+<!-- document对象 属于window对象的子对象， 也 可以通过window.document -->
+<!-- ********DOM 文档对象模型***** -->
+<!-- document object model -->
+<!-- 用于处理文档中的内容 -->
+<!-- 整个页面是一个文档树/节点树 -->
+
+<!-- nodeName属性 -->
+<!-- nodeName属性规定节点的名字，只读属性 -->
+<!-- 元素节点的nodeName和标签名相同 -->
+<!-- 属性节点的nodeName和属性名相同 -->
+<!-- 文本节点的nodeName 始终是#text -->
+<!-- 文档节点的nodeName 始终是#document -->
+
+<!-- nodeType属性 -->
+<!-- 元素 ：1    属性 ：2     文本： 3  注释 ： 8  文档 ：9 -->
+
+
+<!-- *********************属性节点操作对象******************** -->
+<!-- getAttribute() 此方法用于获取属性的值 -->
+<!-- setAttribute() 次方法用于设置属性的值 -->
+<!-- removeAttribute() 删除属性 -->
+
+<!-- 在dom操作里面 -->
+<!-- 经常需要修改或者设置元素节点的样式，实现动态效果 -->
+<!-- 两种方式 -->
+<!-- ********第一种 -->
+<!-- style属性 -->
+<!-- node.style.color 设置颜色 -->
+<!-- node.style.fontSize 设置字体大小 -->
+<!-- node.style.backgroundColor 设置节点的背景颜色 -->
+
+<!-- nodel.style.width="300px" 用于设置节点的宽度-->
+<!-- node.style.heigth="200px" 用于设置节点的高度 -->
+<!-- node.style.display="none" 用于设置节点隐藏 -->
+<!-- node.style.display="block" 用于显示节点 -->
+<!-- node.style.background=url('img/xxx.png') -->
+
+
+<!-- ********第二种 -->
+<!-- 使用style只能一一进行设置。需要设置复杂的样式，可以是事先写好css代码 -->
+<!-- 通过setAttribute() 来给某个标签设置属性 -->
+<!-- 标签.setAttribute("class","css定义的样式") -->
+
+
+<!-- *********************找元素的方法******************** -->
+<!-- 操作节点，需要先找到节点，找到节点的方法有 -->
+
+<!-- 会忽略文档结构 -->
+<!-- 通过id：document.getElementById() -->
+
+<!-- 通过name：document.getElementsByName() -->
+<!-- 返回一个节点的列表(节点的数组) 数组0开始  -->
+<!-- 适用于 查找一组单选框/复选框 -->
+
+
+<!-- 通过标签名字：document.getElementsByTagName()-->
+<!-- 返回一个节点的列表(节点的数组) 数组0开始  -->
+<!-- 按文档顺序来决定数组的顺序 -->
+
+<!-- 不会忽略文档结构 -->
+<!-- 通过层级结构：-->
+<!-- parentNode:返回元素的父节点 -->
+<!-- firstChild:返回元素的第一个子节点 -->
+<!-- lastChild:返回元素的最后一个子节点 -->
+<!-- previousSibling:返回位于相同节点树层级的前一个节点 -->
+<!-- nextSibling:返回位于相同节点树层级的下一个节点 -->
+<!-- childNodes:返回元素的所有子节点组成的数组 -->
+
+<!-- *********************添加元素的方法******************** -->
+
+<!-- 我是第一种 -->
+<!-- 默认添加到后面  .appendChild() -->
+<!-- 1.创建一个新的元素节点 -->
+<!-- var 标签变量 = document.createElement("标签名字") -->
+<!-- 标签变量.属性 = 值 -->
+<!-- 2.获取需要添加的元素节点 -->
+<!-- 需要添加的元素节点.appendChild(标签变量) -->
+
+<!-- 我是第二种 -->
+<!-- 指定位置  parentNode.insertBefore(新节点/标签变量，参考节点) -->
+<!-- 1.创建一个新的元素节点 -->
+<!-- var 标签变量 = document.createElement("标签名字") -->
+<!-- 2.获取需要的参考节点 -->
+<!-- 3.添加 -->
+<!-- 参考节点.parentNode.insertBefore(新节点/标签变量，参考节点) -->
+
+<!-- *********************删除元素的方法******************** -->
+<!-- 1.找到需要删除的标签 -->
+<!-- 删除的标签.parentNode.removeChild(删除的标签) -->
+
+
+<h2>nodeName+nodeType</h2>
+<select>
+    <option id="o1">请选择</option>
+
+</select>
+<br>
+<input type="button" onclick="lookNodeName()" value="看节点名字看节点类型"/>
+<hr>
+<h2 class="h2">属性操作</h2>
+<a id="a01">百度</a><br>
+<input type="button" onclick="setA()" value="添加属性"/>
+<input type="button" onclick="getA()" value="查看属性"/>
+<input type="button" onclick="deleteA()" value="删除属性"/>
+<hr>
+<h2>添加样式</h2>
+<h3 id="p01">一周畅销榜</h3>
+    <input type="button" onclick="setSty01()" value="设置样式通过style属性"/>
+    <h2>通过添加一个属性class，来添加样式</h2>
+    <h3 id="p02">两周畅销榜</h3>
+    <input type="button" onclick="setSty02()" value="设置样式通过方法添加定义好的css代码"/>
+    <hr>
+    <h2>计时案例，页面跳转03</h2>
+    <span>页面有两个按钮，一个是生成新按钮，一个是新按钮赋值</span>
+    <span>点击生成新按钮，生成一个新的按钮，但是没有value，没有点击事件</span>
+    <span>点击新按钮赋值，给刚刚的按钮赋值属性：可以点击，显示：10秒开启新页面</span>
+    <span>点击新按钮赋值，在生成一个取消按钮</span>
+    <span>新按钮赋值：10秒新页面</span>
+    <span>取消按钮：暂停计时</span>
+
+    <h3>点击生成新按钮，生成一个新的按钮</h3>
+    <h3>点击赋值按钮，新按钮的属性</h3>
+
+    <input type="button" value="生成新按钮" onclick="newBut()"/><br />
+    <input type="button" value="赋值按钮"/>
+
+    <div id="divvv"></div>
+
+    <hr>
+    <h2>js的标签层级示例</h2>
+    <h3>段落标签</h3>
+    <!-- var o1 = s1.firstChild;
+            alert(o1.innerHTML)//?
+            alert(s1.nextSibling.innerHTML)//?
+            alert(s1.previousSibling.innerHTML)//?
+    -->
+    <select id="select1" name="李志梅">
+        <option value="">a</option>
+        <option value="">b</option>
+        <option value="">c</option>
+    </select><a href="#">click</a>
+    <br>
+    <input type="button" onclick="ss()" value="点我"/>
+
+    <hr>
+    <h2>通过标签名字</h2>
+    <p>段落1</p>
+    <div>
+        <p>段落2</p>
+        <p>段落3</p>
+    </div>
+    <input type="button" onclick="tagFIND()" value="tagFIND"/>
+    <hr>
+    <h2>添加appendChild()新的标签</h2>
+    <div id="div03">
+        <input type="text" value="我是第一个"/>
+        <input type="text" value="我是第二个"/>
+    </div>
+    <input type="button" onclick="appendC()" value="添加新的标签"/>
+    <hr>
+    <h2>添加insertBefore()新的标签</h2>
+    <span>在form表单有一个按钮</span>
+    <span>点击按钮就在按钮后面添加一个本文节点</span>
+    <span>文本节点是form里面的最后一个子加点，默认你好</span>
+    <span>创建一个新的按钮，新的按钮在原有的按钮之前</span>
+    <form id="form1">
+        <input id="bu01" type="button" onclick="createNewNode()" value="添加新节点"/>
+    </form>
+    <hr>
+    <h2>删除标签</h2>
+    <input id="bu02" type="button" onclick="deleteN()" value="删我"/>
+
+</body>
+</html>
