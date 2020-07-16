@@ -9,6 +9,36 @@
                 1.date 是能选择年月日
                 2.datetime-local 不仅可以选择年月日，还可以选择当前时间，默认是系统时间
       -->
+
+
+    <script>
+        // null 等于 undefined
+        var one;
+        var two = null;
+        console.log(one == two, one === null);
+
+        //为空时都为false
+        var test = new Boolean();
+        document.write(test);
+        document.write("<br />");
+
+        var test=new Boolean(0);
+        document.write(test);
+        document.write("<br />");
+
+        var test=new Boolean(null);
+        document.write(test);
+        document.write("<br />");
+
+        var test=new Boolean("");
+        document.write(test);
+        document.write("<br />");
+
+        var test=new Boolean(NaN);
+        document.write(test);
+        document.write("<br />");
+
+    </script>>
     <input type="date" name="body">
     <input type="datetime-local" name="bodydate">
 </body>
