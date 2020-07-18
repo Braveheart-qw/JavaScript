@@ -7,7 +7,8 @@
     var li = img_ul.childNodes;
     var img = document.getElementsByTagName("img");
 
-
+    //获取select下的li节点
+    var select_li = document.getElementsByClassName("select")[0].getElementsByTagName("li");
 
 
 
@@ -46,6 +47,8 @@
            //将当前透明度为1的设置成0
            animate(img[currentNumber] , "opacity" , 0);
            animate(img[s-1] , "opacity" , 100);
+           select_li[currentNumber].style["backgroundColor"] = "gray";
+            select_li[s-1].style["backgroundColor"] = "#fe0000";
 
     }
 
@@ -60,6 +63,18 @@
         //将当前透明度为1的设置成0
         animate(img[currentNumber] , "opacity" , 0);
         animate(img[parseInt(s)+1] , "opacity" , 100);
+        select_li[currentNumber].style["backgroundColor"] = "gray";
+        select_li[parseInt(s)+1].style["backgroundColor"] = "#fe0000";
+    }
+
+    //封装的向后透明度转换函数
+    function gotoTo(currentNumber , n){
+
+        //将当前透明度为1的设置成0
+        animate(img[currentNumber] , "opacity" , 0);
+        animate(img[n] , "opacity" , 100);
+        select_li[currentNumber].style["backgroundColor"] = "gray";
+        select_li[n].style["backgroundColor"] = "#fe0000";
     }
 
     //为button添加单击事件DOM02级事件
@@ -71,6 +86,19 @@
     setInterval(function(){
         next();
     },5000);
+
+
+    var m = -1;
+     for (var i of select_li){
+         m++;
+         i.count = m;
+         i.onclick = function () {
+
+             var currentNumber = getOpacity();
+             gotoTo(currentNumber , this.count);
+
+         }
+     }
 
 
 
