@@ -11,12 +11,15 @@
             url  : 'https://www.baidu.com/sugrec?pre=1&p=3&ie=utf-8&json=1&prod=pc&from=pc_web&sugsid=32193,1466,31672,32139,32046,32230,32144,32108,26350,22157',
             dataType:'jsonp',
             jsonp : 'cb',
+
             data : {
+
                 wd : 'jsonp',
+
             }
         }).done(function(resp){
             $.each(resp , function (i , obj) {
-                console.log(obj.index(1).q);
+                alert(i.q);
 
             })
         })
