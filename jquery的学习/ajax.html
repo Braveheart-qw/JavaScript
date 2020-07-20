@@ -26,9 +26,10 @@
     var xhr = new XMLHttpRequest();
 
     //2.打开需要请求的对象open();
-    xhr.open("get" , "./summary3" , true);
+    xhr.open("get" , "./summary3" , true);//如果是post请求 需要设置相对应的表单
+
     //3.发送请求
-    xhr.send();
+    xhr.send();         //可以在send里面添加数据(name=value&sex=17...);
     //4.监听ajax状态变化
     xhr.onreadystatechange = function (){
         if (xhr.readyState != 4)
