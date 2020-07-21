@@ -151,7 +151,6 @@
             【格式】父节点.insertBefore(newNode , oldNode);
             【注意】js当中没有插入后一个节点，只可以自己封装函数    见utils.js
 
-
         8.4 删除节点
             removeChild();
 
@@ -168,6 +167,7 @@
             createTextNode();
             【参数】文本内容
             【注意】只能从根节点创建元素节点 如：document.createElement("文本内容");
+
 
         【注意】想要创建一个带文本内容的新节点必须，系统不支持的
                 所以得自己设计一个封装函数
