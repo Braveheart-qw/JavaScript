@@ -40,7 +40,6 @@ jQuery的学习
         如：元素节点.bind("click" , function(){
             //执行语句
         })
-
         parent()
         找到当前元素的直接父元素
 
