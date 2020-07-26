@@ -1,0 +1,36 @@
+gulp的学习
+    自动化整理你的项目文件（用了gulp就相当于请了一个保姆，会自动帮你打理项目）
+
+
+
+    1. 启动nodejs
+        windows键 =》 nodejs文件 =》node js prompt
+
+        node -v 查看安装的nodeJS的版本
+
+    2. 安装nodeJS之后 会随带安装一个 npm(第三方包的包管理器)
+       【问题】下载源是国外的，因此我们需要换源(淘宝源)cnpm
+
+    3. 安装cnpm（找到cnpm网站）
+
+    4. cnpm下载数据实从国内的淘宝服务器上下载的数据
+
+    5. 安装gulp到本地
+        <1>全局安装gulp
+        cnpm install gulp -g
+
+        通过gulp -v输出已安装的gulp版本号
+
+        <2> cd 进入到你想开发项目的这个目录
+
+        <3>初始化当前目录
+            cnpm init   :生成package.json的文件，存放你当前项目一些配置信息
+
+        <4>在当前项目里面安装gulp到本地
+            cnpm install gulp --save-dev
+            --save : 将这个文件，安装到本地的当前文件夹
+            -dev : 将安装gulp的信息保存在package.json里面
+
+            在第<4>部 安装的gulp是最新版的，违反了不使用最新版的规则
+            因此在安装的时候，使用cnpm install gulp@版本号  --save-dev
+                                如：cnpm install gulp@
