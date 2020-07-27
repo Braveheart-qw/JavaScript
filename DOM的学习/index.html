@@ -7,9 +7,13 @@
 
     </script>
     <script>
+        alert(typeof undefined);
+        alert(null == undefined);
         window.onload = function(){
+           alert(document.getElementById("yy").getAttribute("value"));
             var odiv = document.getElementById("odiv");
             var currendNode = odiv.getElementsByTagName("input")[1];
+            alert(currendNode.getAttribute("value"));
             var newNode = currendNode.cloneNode(true);
             odiv.insertBefore(newNode , currendNode);
 
@@ -26,7 +30,7 @@
     <input type="text" name="user" style="border: 1px dashed #000000">
     <input type="password" name="password">
     <div id="odiv">
-        <input class="one" name="user" type="text" value="用户名" >
+        <input id = "yy" class="one" name="user" type="text" value="用户名" >
         <input class="two" name="password" type="text" value="密码" >
         <input class="three" name="qrpassword" type="text" value="确认密码" >
     </div>
