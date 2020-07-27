@@ -13,7 +13,7 @@ gulp的学习
 
     3. 安装cnpm（找到cnpm网站）
 
-    4. cnpm下载数据实从国内的淘宝服务器上下载的数据
+    4. cnpm下载数据是从国内的淘宝服务器上下载的数据
 
     5. 安装gulp到本地
         <1>全局安装gulp
@@ -33,4 +33,8 @@ gulp的学习
 
             在第<4>部 安装的gulp是最新版的，违反了不使用最新版的规则
             因此在安装的时候，使用cnpm install gulp@版本号  --save-dev
-                                如：cnpm install gulp@
+                                如：cnpm install gulp@3.9.1 --save-dev
+
+        <5>这时候gulp环境虽然搭建好了，但是这时候gulp并不知道要干什么，因此我们需要创建一个gulpfile.js的纯js文件来设置任务
+                <5.1>gulp的使用
+                    见gulpfile.js
