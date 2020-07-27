@@ -15,6 +15,7 @@ gulp的学习
 
     4. cnpm下载数据是从国内的淘宝服务器上下载的数据
 
+    //切换到cmd
     5. 安装gulp到本地
         <1>全局安装gulp
         cnpm install gulp -g
