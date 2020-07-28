@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        //在ES6之前的模块化开发，有5种历程
+        /*1.使用函数调用不同的js文件达到js模块化的目的
+          缺点：会造成大面积全局变量污染
+         */
+        function show1() {
+                //模块功能
+        }
+        function show2(){
+                //模块功能
+        }
+
+        /*
+        * 2.使用对象方法来达成模块化开发
+        * 问题，里面的属性和方法都是对外暴露的不安全
+        * */
+             function Person() {
+                this.name = "qian";
+                this.age  = 17;
+                this.show1 = function () {
+                     return this.name;
+           }
+        }
+        var p = new Person();
+        alert(p.show1());
+
+        /*
+        * 3.利用立即执行函数方法达成模块化的开发
+        *
+        * */
+        // var moudle = (function () {
+        //     var conunt = "0";
+        //     function f() {
+        //         alert(conunt);
+        //     }
+        //
+        //     //对外暴露
+        //     return{
+        //         outA: f(),
+        //     }
+        // })()
+        //
+        // alert(moudle.outA);
+        
+        /*
+        * 4. 对于3的方法，虽然解决了暴露问题
+        * 在3的基础上进行加工：放大模式
+        * */
+        var Student = (function () {
+                var name = "qian";
+                var age  = 17;
+                function getName() {
+                    return name;
+                }
+                function getAge() {
+                    return age;
+                }
+                return {
+                    getAge: getAge(),
+                    getName:getName()
+                }
+        })();
+
+            Student  = (function (stu) {
+                var sex = "男";
+                function getSex() {
+                    return sex;
+                }
+                stu.getSex = getSex();
+                return stu;
+        })(Student);
+
+        alert(Student.getAge);
+        alert(Student.getSex);
+
+        /*
+        * 5. 对于4而言顺序有严格的要求
+        *    宽放大模式
+        * */
+        var Book = (function(book){
+            var name = "时间管理";
+            var price = 15.9;
+            
+            function getName() {
+                return name;
+            }
+
+            function getPrice() {
+                return price;
+            }
+            book.getName = getName();
+            book.getPrice  = getPrice();
+            return book;
+        })(Book || {})
+
+        Book = (function (book) {
+            var clazz = "书本";
+            function getClazz() {
+                return clazz;
+            }
+            book.getClazz = getClazz();
+            return book;
+        })(Book || {});
+
+        alert(Book.getName+Book.getPrice+Book.getClazz);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
