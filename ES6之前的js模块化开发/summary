@@ -1,0 +1,68 @@
+js的模块化开发
+    index.html中介绍了模块化开发的历程从毫无规范到逐渐拥有自己的模块化规则
+
+    下面将介绍三大模块化规范
+    /*
+            *1. CommonJS规范(服务器)编写代码（同步加载）
+            * */
+            声明:
+                module.exports = {
+                    outA: ShowA,
+                    outB: ShowB,
+                }
+
+            引入：(同步执行)
+                var moduleA = require("moduleA.js");
+                moduleA.outA;
+                moduleA.outB;
+
+            /*
+            * 2.AMD规范(客户端)（异步加载）
+            * */
+            声明：
+                define(function () {
+                    //代码
+
+                    return{
+                        outA: showA,
+                        outB: showB
+                    }
+                })
+
+            引入：(异步执行)
+                     require("moduleA.js" , function (moduleA) {
+                        //这里的代码，模块引入后执行
+                         moduleA.outA;
+                     })
+
+           ES6模块化规范
+                export = {
+                     outA: showA,
+                     outB：showB
+                }
+
+                引入
+                    import moduleA from "moduleA.js"
+                    moduleA.outA;
+
+
+           上面就是三大规范
+           讲解一下在项目中使用AMD规范，这里将会介绍一个requireJS的框架的使用
+
+           requireJS采用的就是AMD的规范，因此使用requireJS框架的时候，
+           引入和声明的函数都必须遵从AMD规范
+
+           requireJS的使用
+            1.下载requireJS
+            2.在项目中引入requireJS
+                如：<script type="text/javascript" src"" async='true' defer data-main = '管理菜单.js' ></script>
+                async: 'true'  引入的所有JS文件都是异步加载
+                data-main = "管理菜单.js"  : 入口文件，.js后缀名可以省略  管理当前.html页面所使用的js文件
+
+            main.js  管理菜单.js
+            require.config({
+                    path:{
+                        key ： value                 为路径设置一个变量，后面引入时，可以直接写变量
+                    }
+            })
+
