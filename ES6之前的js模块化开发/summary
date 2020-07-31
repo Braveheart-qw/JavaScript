@@ -55,7 +55,7 @@ js的模块化开发
            requireJS的使用
             1.下载requireJS
             2.在项目中引入requireJS
-                如：<script type="text/javascript" src"" async='true' defer data-main = '管理菜单.js' ></script>
+                如：<script type="text/javascript" src"" defer async='true'  data-main = '管理菜单.js' ></script>
                 async: 'true'  引入的所有JS文件都是异步加载
                 data-main = "管理菜单.js"  : 入口文件，.js后缀名可以省略  管理当前.html页面所使用的js文件
 
