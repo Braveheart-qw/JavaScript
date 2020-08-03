@@ -1,34 +1,3 @@
-Skip to content
-Search or jump to…
-
-Pull requests
-Issues
-Marketplace
-Explore
-
-@Braveheart-qw
-Braveheart-qw
-/
-JavaScript
-1
-00
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
-Settings
-JavaScript/Node.js/summary
-@Braveheart-qw
-Braveheart-qw nodejs
-Latest commit cdebc94 13 hours ago
- History
- 1 contributor
-37 lines (25 sloc)  2.3 KB
-
 Node.JS的学习
     1.什么是node.js
        运行在服务端的js(没有了浏览器的安全级别限制，意思就是可以调用系统级的API)
@@ -75,4 +44,3 @@ Node.JS的学习
         nodejs分为三种类型的模块：1.内置模块
                                 2.第三方模块
                                 3.自定义模块
-
