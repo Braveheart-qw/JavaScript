@@ -1,3 +1,34 @@
+Skip to content
+Search or jump to…
+
+Pull requests
+Issues
+Marketplace
+Explore
+
+@Braveheart-qw
+Braveheart-qw
+/
+JavaScript
+1
+00
+Code
+Issues
+Pull requests
+Actions
+Projects
+Wiki
+Security
+Insights
+Settings
+JavaScript/Node.js/summary
+@Braveheart-qw
+Braveheart-qw nodejs
+Latest commit cdebc94 13 hours ago
+ History
+ 1 contributor
+37 lines (25 sloc)  2.3 KB
+
 Node.JS的学习
     1.什么是node.js
        运行在服务端的js(没有了浏览器的安全级别限制，意思就是可以调用系统级的API)
@@ -29,9 +60,19 @@ Node.JS的学习
         下载：nvm install <version(版本号)>
         使用：vem user <version(版本号)>  或者在项目文件中配置好【 .nvmrc 】文件  ，文件内容就是版本号
 
+    4.nodejs的使用
+        nodejs遵循commonJS的规范
+        nodejs的使用和java导入jar包相似
+                区别： java
+                        1.找到需要的jar包，然后下载
+                        2.在项目中引入jar包
+
+                       nodejs
+                        1.利用npm在当前项目终端，下载自己需要的模块(npm可以将模块下载到全局，亦或者是当前项目(推荐))cnpm install '模块' --save-dev
+                        2.利用require('模块')  引入下载的模块
 
 
-
-
-
+        nodejs分为三种类型的模块：1.内置模块
+                                2.第三方模块
+                                3.自定义模块
 
