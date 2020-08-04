@@ -27,7 +27,7 @@ Node.JS的学习
 
     可以通过nvm来下载别的版本的nodejs，或者使用node use 选择需要的版本node（必须是已经下载好的）
         下载：nvm install <version(版本号)>
-        使用：vem user <version(版本号)>  或者在项目文件中配置好【 .nvmrc 】文件  ，文件内容就是版本号
+        使用：nvm user <version(版本号)>  或者在项目文件中配置好【 .nvmrc 】文件  ，文件内容就是版本号
 
     4.nodejs的使用
         nodejs遵循commonJS的规范
@@ -44,3 +44,10 @@ Node.JS的学习
         nodejs分为三种类型的模块：1.内置模块
                                 2.第三方模块
                                 3.自定义模块
+
+        【重点】nodejs 模块API文档 http://nodejs.cn/api/
+
+    5.路由
+        通俗的说的就是服务器
+        使用: 1.通过http.createServer(callback).listen(port);
+        在最后需要将req关闭掉
