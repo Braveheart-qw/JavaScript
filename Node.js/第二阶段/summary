@@ -1,0 +1,23 @@
+一 优雅的编写同步异步代码
+
+1.串行无关联
+async模块：第三方模块
+
+async.series([task1 , task2,....], callback(err ,results));
+从上往下依次执行，相互之间没有数据交互,如果执行失败，将会把错误传回给回调函数，并且停止执行后面的函数，series执行完毕的时间是几个函数花费时间的总和
+
+2.并行无关联
+parallel([task1 , task2 ,....] , callback(err , results));
+任务列表函数 同时执行，parallel的执行时间是花费时间最多函数的时间
+
+3.串行有关联
+async.waterfall([task1 , task2 ,....] , callback(err , results))
+函数可以依次传入参数，执行完毕的时间是几个函数花费时间的总和
+
+二 npm script（npm 脚本）
+可以把node 命令放到package.json里面script对象里，使用npm run,也可以运行你的命令。
+如：把node async 命令放到 script里面，npm run 就可以执行改脚本里的所有命令
+
+三 浅析socket的实际应用
+
+
