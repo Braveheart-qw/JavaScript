@@ -57,6 +57,8 @@ AJAX的学习
     xhr.setRequestHeader('Content-Type' , 'application/x-www-form-urlencoded')';
 
 
+
+
 2.什么是同源策略
 
 
