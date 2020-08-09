@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery的学习/jquery-3.5.1.min.js"></script>
+    <script>
+
+        var currentDate = new Date();
+        var thisYear    = new Date('2020-01-01');
+        var year  = currentDate.getFullYear();
+        var month = currentDate.getMonth()+1;
+        var day   = currentDate.getDate();
+        var hh    = currentDate.getHours();
+        var mm    = currentDate.getMinutes();
+        var ss    = currentDate.getSeconds();
+        var week  = currentDate.getDay();
+        var week  = week==0 ? week = "天" : week;
+        alert("今天距离年初："
+            +Math.ceil((currentDate - thisYear)/(1000*60*60*24))+"天"+"\n"
+            +"当前时间："+year+"-"+month+"-"+day+" "+hh+":"+mm+":"+ss+"\n"
+            +"星期"+week);
+
+    </script>
+
+    <style>
+        *{
+            margin: 0;
+            padding : 0;
+            list-style: none;
+        }
+        li{
+            background: red;
+            width: 100px;
+            height: 100px;
+            border: 1px solid #000000;
+            margin: 5px 5px;
+            float: left;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</body>
+
+<script>
+
+
+
+</script>
+</html>
